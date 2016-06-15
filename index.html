@@ -1,0 +1,124 @@
+<!DOCTYPE html> 
+<html>
+	<head>
+		<meta charset="UTF-8"> 
+		<title> Leslie's Portfolio </title>
+		<script src="http://ajax.googleapis.com/ajax/libs/jquery/1.5.2/jquery.min.js"></script> 
+		<link rel="stylesheet" type="text/css" href="style.css" />
+		<script type="text/javascript" src="slider.js"></script>
+		<script type="text/javascript" src="thumbnails.js"></script>
+
+		<link rel="stylesheet" type="text/css" href="slider.css">
+
+	</head> 
+
+	<body> 
+		<div id = "header">
+			<div id = "myName"> Leslie Manrique </div> 
+			<div id = "nav"> 
+				<ul> 
+					<a href = "#about"> about </a> 
+					<a href = "#projects"> projects </a> 
+					<a href = "#contact"> contact </a> 
+					
+				</ul> 
+			</div> 
+		</div> 
+
+		<div id="page-wrap">
+
+			<div id="page1">
+				<a name="about"></a>
+				<div class="page-padding"></div>
+				<div id = "about-section">
+					<p id = "page-title"> about me </p>
+					<!-- <p id = "about-head"> 
+						NYU | Computer Science | Latina -->
+					<p id = "about-text"> 
+						My name is Leslie Manrique. I am a rising senior at New York University. I will be graduating May 2017 with a BA degree in Computer Science and minors in Mathematics and Web Applications and Development.
+					</p> 
+					<p id = "about-text"> 
+						I enjoy solving problems and being creative through code.Aside from coding, I love watching movies, reading, volunteering, and playing with my puppies. 
+					</p>
+				</div> 
+				<div id = "slideshow"> 
+					<div class="container">
+						<div class="slider_wrapper">
+							<ul id="image_slider">
+								<li><img src="images-slideshow/001.jpg" width = "400" height = "465"></li>
+								<li><img src="images-slideshow/002.png" width = "400" height = "465"></li>
+								<li><img src="images-slideshow/003.png" width = "400" height = "465"></li>
+								<li><img src="images-slideshow/004.jpg" width = "400" height = "465"></li>
+								<li><img src="images-slideshow/005.jpg" width = "400" height = "465"></li>
+								
+							</ul>					
+							<span class="nvgt" id="prev"></span>
+							<span class="nvgt" id="next"></span>
+						</div>
+					</div>
+				</div>
+			</div> <!--END page1-->
+			
+			<div id="page2">
+				<a name="projects"></a>
+				<div class="page-padding"></div>
+				<div id = "project-thumbs"> </div> 
+			
+				<!-- <p>This is what you would see on the Portfolio page.</p> -->
+
+			</div> <!--END page2-->
+
+
+			<div id="page3">
+				<a name="contact"></a> 
+				<div class="page-padding"></div>
+				<p>This is what you see on the Contact page.</p>
+			</div> <!--END page3-->
+		
+		</div> <!--END page-wrap-->
+		<script>
+			$(document).ready(function(){
+			    $("#nav a").hover(function(){
+			        $(this).css("color", "gray");
+			        // $(this).css("color", "black");
+			        $(this).css("font-size", "27px");
+			        }, 
+
+			        function(){
+			        $(this).css("color", "white");
+			        $(this).css("font-size", "25px"); 
+			        
+			    });
+			});
+		</script>
+
+		<script>
+			$(document).ready(function() { 
+				function filterPath(string) {
+	    return string
+	      .replace(/^\//,'')  
+	      .replace(/(index|default).[a-zA-Z]{3,4}$/,'')  
+	      .replace(/\/$/,'');
+	  }
+	  $('a[href*=#]').each(function() {
+	    if ( filterPath(location.pathname) == filterPath(this.pathname)
+	    && location.hostname == this.hostname
+	    && this.hash.replace(/#/,'') ) {
+	      var $targetId = $(this.hash), $targetAnchor = $('[name=' + this.hash.slice(1) +']');
+	      var $target = $targetId.length ? $targetId : $targetAnchor.length ? $targetAnchor : false;
+	       if ($target) {
+	         var targetOffset = $target.offset().top;
+	         $(this).click(function() {
+	           $('html, body').animate({scrollTop: targetOffset}, 800);
+	           return false;
+	         });
+	      }
+	    }
+	  });
+	});
+
+		</script>
+
+
+	</body>
+</html>
